@@ -4,7 +4,7 @@
 
 通过简单的右键菜单操作或快捷键，你可以直接在 VSCode 中运行 ROS 的 `roslaunch` 或者 `rosrun` 命令。
 <div style="text-align: center;">
-    <img src="./icon/ROS-Quick-Runner.ico" alt="插件logo" style="width: 50%; height: auto;">
+    <img src="./icon/ROS-Quick-Runner.ico" alt="插件logo" style="width: 10%; height: 10%;">
 </div>
 
 ## 功能
