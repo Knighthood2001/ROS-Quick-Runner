@@ -2,7 +2,7 @@
   "name": "ros-quick-runner",
   "displayName": "ros-quick-runner",
   "description": "通过在资源管理器中右键，运行roslaunch/rosrun",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "icon": "icon/ROS-Quick-Runner.ico",
   "publisher": "knighthood2001",
   "engines": {
