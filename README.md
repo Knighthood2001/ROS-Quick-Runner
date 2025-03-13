@@ -3,9 +3,9 @@
 这是一个为 ROS（机器人操作系统）开发者设计的 VSCode 扩展，旨在快速启动 `.launch` 或者 `.cpp` 或者 `.py` 文件。
 
 通过简单的右键菜单操作或快捷键，你可以直接在 VSCode 中运行 ROS 的 `roslaunch` 或者 `rosrun` 命令。
-<center>
-    <img src="./icon/ROS-Quick-Runner.ico" alt="插件logo" width="20%" height="20%">
-</center>
+<div align=center>
+    <img src="https://github.com/Knighthood2001/ROS-Quick-Runner/blob/main/icon/ROS-Quick-Runner.ico" alt="插件logo" width="20%" height="20%">
+</div>
 
 ## 功能
 
