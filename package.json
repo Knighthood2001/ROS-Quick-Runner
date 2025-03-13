@@ -1,8 +1,10 @@
 {
   "name": "ros-quick-runner",
   "displayName": "ros-quick-runner",
-  "description": "ros quick runner",
-  "version": "0.0.1",
+  "description": "通过在资源管理器中右键，运行roslaunch/rosrun",
+  "version": "1.0.1",
+  "icon": "icon/ROS-Quick-Runner.ico",
+  "publisher": "knighthood2001",
   "engines": {
     "vscode": "^1.20.0"
   },
@@ -40,13 +42,18 @@
       ]
     }
   },
+  "keywords": [
+    "ROS",
+    "roslaunch",
+    "rosrun"
+  ],
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.98.0",
+    "@types/vscode": "^1.20.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
     "eslint": "^9.16.0",
