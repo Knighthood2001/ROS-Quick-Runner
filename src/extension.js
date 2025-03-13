@@ -5,7 +5,7 @@ const fs = require('fs');
 function activate(context) {
     console.log('恭喜，你的插件 "ros-quick-runner" 已经激活！');
 
-    let disposable = vscode.commands.registerCommand('ros-launcher.roslaunch', async (uri) => {
+    let roslaunchDisposable  = vscode.commands.registerCommand('ros-launcher.roslaunch', async (uri) => {
         if (!uri) {
             vscode.window.showErrorMessage('请在文件资源管理器中右键点击 launch 文件');
             return;
@@ -34,7 +34,46 @@ function activate(context) {
         terminal.sendText(`roslaunch ${packageName} ${launchFileName}`);
     });
 
-    context.subscriptions.push(disposable);
+    let rosrunDisposable = vscode.commands.registerCommand('ros-launcher.rosrun', async (uri) => {
+        if (!uri) {
+            vscode.window.showErrorMessage('请在文件资源管理器中右键点击节点文件');
+            return;
+        }
+
+        const filePath = uri.fsPath;
+        const workspaceFolder = vscode.workspace.getWorkspaceFolder(uri);
+
+        if (!workspaceFolder) {
+            vscode.window.showErrorMessage('无法确定工作区文件夹');
+            return;
+        }
+
+        const packageName = await getPackageNameFromPath(filePath);
+        if (!packageName) {
+            vscode.window.showErrorMessage('无法找到有效的 ROS 包名');
+            return;
+        }
+
+        const fileName = path.basename(filePath);
+        const fileExt = path.extname(filePath);
+
+        // 根据文件扩展名判断文件类型
+        if (fileExt === '.py') {
+            const node = fileName; 
+            const terminal = vscode.window.createTerminal('ROS Run');
+            terminal.show();
+            terminal.sendText(`rosrun ${packageName} ${node}`);
+        } else if (fileExt === '.cpp') {
+            const node = path.basename(filePath, fileExt);
+            const terminal = vscode.window.createTerminal('ROS Run');
+            terminal.show();
+            terminal.sendText(`rosrun ${packageName} ${node}`);
+        } else {
+            vscode.window.showErrorMessage('不支持的文件类型');
+        }
+    });
+
+    context.subscriptions.push(roslaunchDisposable, rosrunDisposable);
 }
 
 async function getPackageNameFromPath(filePath) {
