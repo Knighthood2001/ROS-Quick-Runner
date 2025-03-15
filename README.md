@@ -4,7 +4,7 @@
 
 通过简单的右键菜单操作或快捷键，你可以直接在 VSCode 中运行 ROS 的 `roslaunch` 或者 `rosrun` 命令。
 <div align=center>
-    <img src="https://github.com/Knighthood2001/ROS-Quick-Runner/blob/main/icon/ROS-Quick-Runner.ico" alt="插件logo" width="20%" height="20%">
+    <img src="https://github.com/Knighthood2001/ROS-Quick-Runner/blob/main/icon/ROS-Quick-Runner.ico?raw=true" alt="插件logo" width="20%" height="20%">
 </div>
 
 ## 功能
@@ -24,7 +24,11 @@
 
 演示视频如下：
 
-![视频](./pic/result.gif)
+<div align=center>
+    <img src="https://github.com/Knighthood2001/ROS-Quick-Runner/blob/main/pic/result.gif?raw=true" >
+</div>
+
+
 
 
 使用前说明（非常重要）：
@@ -37,7 +41,8 @@
     source ~/catkin_ws/devel/setup.bash
     ```
     否则，可能会出现如下错误：
-    ![问题](./pic/image.png)
+
+    ![问题](https://github.com/Knighthood2001/ROS-Quick-Runner/blob/main/pic/image.png?raw=true)
 
 
 ### 通过右键菜单启动 `.launch` 文件
