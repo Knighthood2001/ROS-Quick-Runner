@@ -28,10 +28,16 @@ function activate(context) {
 
         const launchFileName = path.basename(filePath);
 
+        // 创建命令字符串
+        const command = `roslaunch ${packageName} ${launchFileName}`;
+        
+        // 复制命令到剪贴板
+        await vscode.env.clipboard.writeText(command);
+        
         // 创建终端并执行 roslaunch 命令
         const terminal = vscode.window.createTerminal('ROS Launch');
         terminal.show();
-        terminal.sendText(`roslaunch ${packageName} ${launchFileName}`);
+        terminal.sendText(command);
     });
 
     let rosrunDisposable = vscode.commands.registerCommand('ros-launcher.rosrun', async (uri) => {
@@ -59,15 +65,25 @@ function activate(context) {
 
         // 根据文件扩展名判断文件类型
         if (fileExt === '.py') {
-            const node = fileName; 
+            const node = fileName;
+            const command = `rosrun ${packageName} ${node}`;
+            
+            // 复制命令到剪贴板
+            await vscode.env.clipboard.writeText(command);
+            
             const terminal = vscode.window.createTerminal('ROS Run');
             terminal.show();
-            terminal.sendText(`rosrun ${packageName} ${node}`);
+            terminal.sendText(command);
         } else if (fileExt === '.cpp') {
             const node = path.basename(filePath, fileExt);
+            const command = `rosrun ${packageName} ${node}`;
+            
+            // 复制命令到剪贴板
+            await vscode.env.clipboard.writeText(command);
+            
             const terminal = vscode.window.createTerminal('ROS Run');
             terminal.show();
-            terminal.sendText(`rosrun ${packageName} ${node}`);
+            terminal.sendText(command);
         } else {
             vscode.window.showErrorMessage('不支持的文件类型');
         }
